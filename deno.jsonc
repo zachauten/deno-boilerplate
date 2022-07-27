@@ -1,0 +1,7 @@
+{
+  "tasks": {
+    "start": "deno run -A src/main.ts",
+    "build": "echo '#! /usr/bin/env deno run' > script && deno bundle src/main.ts >> script && chmod +x script"
+  },
+  "importMap": "./import_map.json"
+}
