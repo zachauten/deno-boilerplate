@@ -1,0 +1,23 @@
+name: Test
+on:
+  workflow_dispatch:
+    inputs:
+      environment:
+        description: Environment to run tests against.
+        type: environment
+        # If no environment is provided, default to a local envionment with mocked external dependencies.
+        required: false
+        default: local
+        options: 
+          - local
+          - dev
+          - prod
+jobs:
+  run-test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: denoland/setup-deno@v2
+        with:
+          deno-version: v2.x
+      - name: run script
+        run: deno eval "console.log('hello world')"
