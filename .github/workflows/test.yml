@@ -4,7 +4,7 @@ on:
     inputs:
       environment:
         description: Environment to run tests against.
-        type: environment
+        type: choice
         # If no environment is provided, default to a local envionment with mocked external dependencies.
         required: false
         default: local
