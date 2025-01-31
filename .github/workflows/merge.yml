@@ -1,0 +1,16 @@
+name: pull request
+on:
+  pull_request:
+    types: [ closed ]
+    branches: [ main ]
+
+jobs:
+  print-merge-commit:
+    runs-on: ubuntu-latest
+    if: github.event.pull_request.merged == true
+    steps:
+    - name: print merge commit
+      run: echo ${{ github.event.pull_request.merge_commit_sha }}
+
+    - name: print head sha
+      run: echo ${{ github.event.pull_request.head.sha }}
